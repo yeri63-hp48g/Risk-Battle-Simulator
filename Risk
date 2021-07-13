@@ -1,0 +1,152 @@
+'Risk'
+<< 
+  WHILE 1
+  Repeat 
+    CLEAR
+    "Risk Battle Sim" 
+    { { " Attack:" }
+      { " Defend:" } }
+    { } { } { } INFORM
+
+    IF 1 == 
+      THEN OBJ-> DROP .1 0 -> f g t k
+      @ f = attacking armies
+      @ g = defending armies
+      @ t = time delay between updates
+      @ k = key press
+
+      << 
+        CLLCD
+
+        @ Re-seed the random function.
+
+        0 RDZ
+
+        @ As long as there are more than 1 attacking army
+        @ and more than 0 defending armies, continue.
+
+        WHILE f 1 > g 0 > AND REPEAT
+
+          @ Check for Edit, Cancel and OK keypress, since these
+          @ still appear on the screen from the INFORM menu.
+
+          IF KEY
+            THEN 'k' STO
+
+            CASE 
+              @ Edit = Stop current battle and restart for new one.
+              k 11 == THEN CLEAR Risk END
+
+              @ Cancel = Stop current battle and quit.
+              k 15 == THEN CLEAR KILL END
+
+              @ Ok = Change update speed, to see dice how dice throws
+              @      determine who looses an army in battle.
+              k 16 == THEN t 1 + 5 MOD 't' STO END
+            END 
+          END
+
+          @ Short delay to monitor progress of battle.
+          t WAIT 
+
+          @ Throw dice up to 3 dice, as long as there is more than 
+          @ 1 army attacking.
+
+          1 3 FOR j
+            IF f j > 
+              THEN RAND 6 * FLOOR 1 + 
+              ELSE 0 
+            END
+          NEXT 
+
+          @ Sort from largest to smallest.
+          3 ->LIST SORT REVLIST
+
+          @ Throw up to 2 dice, as long as defending armies exist.
+
+          1 2 FOR j
+            IF g j >= 
+              THEN RAND 6 * FLOOR 1 +
+              ELSE 0
+            END
+          NEXT
+
+          @ Sort from largest to smallest. 
+
+          2 ->LIST SORT REVLIST
+
+          OBJ-> DROP ROT 
+          OBJ-> DROP -> d e a b c
+          @ a, b, c = attacking armies
+          @    d, e = defending armies
+          << 
+            @ Compare the highest dice for each, and 
+            @ subtract 1 army from the looser.
+ 
+            IF a d > 
+              THEN 'g' DECR
+              ELSE 'f' DECR
+            END
+
+            @ Compare the 2nd higest dice, only if
+            @ neither player is zero, and subtract
+            @ 1 army from the looser.
+
+            IF b e > b 0 > e 0 > AND AND
+              THEN 'g' DECR
+            END
+
+            IF b e <= b 0 > e 0 > AND AND
+              THEN 'f' DECR
+            END
+
+            @ Update the results on the screen for
+            @ each player, to monitor who is winning.
+
+            " Risk Battle Sim" 2 DISP
+            " Attack Dice: " a + " " +
+
+            @ Display every dice throw. If any is zero
+            @ omit it, since they do not count.
+
+            IF b 0 >
+              THEN b + " " + 
+            END
+
+            IF c 0 >
+              THEN c + 
+            END
+
+            4 DISP
+
+            " Defend Dice: " d + " " +
+
+            IF e 0 >
+              THEN e + 
+            END
+
+            5 DISP
+
+            @ Display the current totals for army.
+
+            " Armies: " f + ":" + g + 7 DISP
+            6 FREEZE CLEAR
+          >>
+
+          @ Add sound effect, to indicate completion of
+          @ one battle using dice to determine the outcome.
+
+          1250 .01 BEEP
+        END
+
+        @ Once the attacker reaches 1 or defender reaches
+        @ zero, stop the simulation.
+
+        "
+          Battle Over
+         " MSGBOX
+      >>
+      ELSE CLEAR KILL
+    END
+  END
+>>
