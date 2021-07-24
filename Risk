@@ -72,24 +72,6 @@
           @ a, b, c = attacking armies
           @    d, e = defending armies
           << 
-            @ Compare the highest dice for each, and 
-            @ subtract 1 army from the looser.
-            IF a d > 
-              THEN 'g' DECR
-              ELSE 'f' DECR
-            END
-
-            @ Compare the 2nd higest dice, only if
-            @ neither player is zero, and subtract
-            @ 1 army from the looser.
-            IF b e > b 0 > e 0 > AND AND
-              THEN 'g' DECR
-            END
-
-            IF b e <= b 0 > e 0 > AND AND
-              THEN 'f' DECR
-            END
-
             @ Update the results on the screen for
             @ each player, to monitor who is winning.
             " Risk Battle Sim" 2 DISP
@@ -117,7 +99,29 @@
 
             @ Display the current totals for army.
             " Armies: " f + ":" + g + 7 DISP
-            6 FREEZE CLEAR
+            6 FREEZE 
+            
+            @ Determine the battle outcome from the dice
+            @ and update each players army totals.
+            
+            @ Compare the highest dice for each, and 
+            @ subtract 1 army from the looser.
+            IF a d > 
+              THEN 'g' DECR
+              ELSE 'f' DECR
+            END
+
+            @ Compare the 2nd higest dice, only if
+            @ both players threw a dice, and subtract
+            @ 1 army from the looser.
+            IF b 0 > e 0 > AND AND 
+              THEN IF b e >
+                THEN 'g' DECR
+                ELSE 'f' DECR
+              END
+            END
+
+            CLEAR
           >>
 
           @ Add sound effect, to indicate completion of
