@@ -1,4 +1,7 @@
 # Risk-Battle-Simulator
+
+![Screenshot of Risk-Battle-Simulator](https://github.com/yeri63-hp48g/Risk-Battle-Simulator/raw/main/Risk.png)
+
 Risk was one of my favorite games to play in the 80's with my high school friends. We would typically have 4 or more players, and during the course of the game, pair up with another player to attempt taking out everyone else, before starting the really large battles and see who could domininate the world. When the battles starting approaching 100 or more armies, far too much time was spent rolling dice to determine the eventual winner of a territory. If only we had thought to write one of these simulators on the programmable calculators of the day, could more time be spent on strategy, and less on rolling dice, thus avoiding the long delays other players had to endure, waiting for their turn in the game.
 
 This program addresses that problem head on, by both showing the actual dice throws on screen (which can be slowed down<sup>1</sup> to a crawl if there's any doubt how the dice throws are being evaluated), and shortening battle times to within 8 to 15 sec for battles of up to 100 defending armies. This application honors all of the rules stated in the game for attacks, such as the maximum number of dice each player can use, which dice to compare to determine outcome, how ties are handled, and how long can the battle continue based on armies remaining. 
