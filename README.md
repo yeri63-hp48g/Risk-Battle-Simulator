@@ -15,11 +15,11 @@ This program addresses that problem head on, by both showing the actual dice thr
 
 To demostrate, here is an example of possible battle scenarios along with the outcome of each, based on the dice thrown by each combatant. The pairs are used to determine battle outcomes, created from the highest dice thrown by each. 
 
-Attacker's<br />Dice | Defender's<br />Dice | Dice<br />Pairs | Battle<br />Outcome
+Attack<br />Dice | Defend's<br />Dice | Dice<br />Pairs | Battle<br />Outcome
 :-: | :-: | :-: |:--
 1, 6, 1 | 3    | 6:3 | Defender loses 1 army. 
-3, 3    | 3, 4 | 3:4, 3:3 | Attacker loses 2 armies. 
-2, 6, 1 | 3, 2 | 6:3, 2:2 | Attacker and Defender both lose 1 army. 
+3, 3    | 3, 4 | 3:4<br />3:3 | Attacker loses 2 armies. 
+2, 6, 1 | 3, 2 | 6:3<br />2:2 | Attacker and Defender both lose 1 army. 
 6       | 4, 5 | 6:5 | Defender loses 1 army. 
 
 Notes:
