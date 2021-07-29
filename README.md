@@ -1,6 +1,6 @@
-# Risk-Battle-Simulator
+# Risk Battle Simulator
 
-![Screenshot of Risk-Battle-Simulator](https://github.com/yeri63-hp48g/Risk-Battle-Simulator/raw/main/Risk.png)
+![Screenshot of Risk Battle Simulator](https://github.com/yeri63-hp48g/Risk-Battle-Simulator/raw/main/Risk.png)
 
 Risk was one of my favorite games to play in the 1980's with my high school friends. We would typically have 4 or more players, and during the course of the game, some would form alliances to not attack each other, but only focus on eliminating everyone else on their borders. Afterwards, the really large battles would begin, to see who would eventually domininate the world and win the game. When the battles starting approaching 100 or more armies, far too much time was spent rolling dice to determine the victor. If only we had thought to write one of these simulators on the programmable calculators of the day, could we then have more time to spend on strategy, rapid territorial movement between Risk players, shortening the time needed to complete the game, revealing the new world power.
 
